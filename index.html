@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Policy Maker</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Aiden Policy Maker</h1>
+        <form id="inputForm">
+            <label for="customerName">Customer Name:</label>
+            <input type="text" id="customerName" name="customerName" required>
+            
+            <label for="directory">Directory:</label>
+            <input type="text" id="directory" name="directory" required>
+            
+            <label for="environment">Environment:</label>
+            <select id="environment" name="environment" required>
+                <option value="PRD">PRD</option>
+                <option value="QAS">QAS</option>
+                <option value="DEV">DEV</option>
+            </select>
+            
+            <label for="project">Project:</label>
+            <input type="text" id="project" name="project" required>
+            
+            <label for="customerDomain">Customer Domain:</label>
+            <input type="text" id="customerDomain" name="customerDomain" required>
+            
+            <button type="submit">Generate</button>
+        </form>
+        <div id="outputContainer" class="hidden">
+            <h2>Generated Text Fields</h2>
+            <div id="textFields">
+                <label for="subaccount">Subaccount:</label>
+                <input type="text" id="subaccount" class="text-field" readonly>
+                <label for="subdomain">Subdomain:</label>
+                <input type="text" id="subdomain" class="text-field" readonly>
+                <label for="cfOrgName">CF Org Name:</label>
+                <input type="text" id="cfOrgName" class="text-field" readonly>
+                <label for="cfSpaceName">CF Space Name:</label>
+                <input type="text" id="cfSpaceName" class="text-field" readonly>
+                <label for="kymaCluster">Kyma Cluster:</label>
+                <input type="text" id="kymaCluster" class="text-field" readonly>
+                <label for="kymaNamespaces">Kyma Namespaces:</label>
+                <input type="text" id="kymaNamespaces" class="text-field" readonly>
+                <label for="cloudConnectorVRT">Cloud Connector VRT:</label>
+                <input type="text" id="cloudConnectorVRT" class="text-field" readonly>
+                <label for="cloudConnectorINT">Cloud Connector INT:</label>
+                <input type="text" id="cloudConnectorINT" class="text-field" readonly>
+            </div>
+            <button id="nextButton">Next</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
