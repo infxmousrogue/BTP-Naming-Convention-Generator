@@ -1,5 +1,7 @@
+/* Update your CSS file with these styles */
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Arial', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
@@ -11,11 +13,12 @@ body {
     border-radius: 8px;
     max-width: 500px;
     margin: auto;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 h1, h2 {
     text-align: center;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a more beautiful font */
 }
 
 form {
@@ -33,7 +36,7 @@ select {
 
 button {
     padding: 10px;
-    background-color: #007bff;
+    background-color: #c1d441; /* Button color */
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -41,7 +44,7 @@ button {
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #a8bc35; /* Button color on hover */
 }
 
 #outputContainer {
@@ -63,3 +66,129 @@ button:hover {
 .hidden {
     display: none;
 }
+
+.copy-container img.copy-btn {
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    margin-left: 5px;
+}
+
+.text-field-container {
+    position: relative;
+}
+
+.text-field-container .copy-btn {
+    position: absolute;
+    top: 50%;
+    right: 10px; /* Adjust as needed */
+    transform: translateY(-50%);
+    cursor: pointer;
+    width: 20px;
+    height: 20px;
+}
+
+.text-field-container {
+    position: relative;
+    display: inline-block;
+}
+
+.text-field {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 200px;
+}
+
+.copy-btn {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #c1d441; /* Button color */
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 0 5px 5px 0;
+    cursor: pointer;
+}
+
+.copy-btn:hover {
+    background-color: #a8bc35; /* Button color on hover */
+}
+
+/* Add this to your existing CSS */
+
+.logo {
+    display: block;
+    margin: 0 auto 20px; /* Adjust margin as needed */
+    border-radius: 50%; /* Makes the image round */
+    max-width: 200px; /* Adjust size as needed */
+}
+/* Add these styles to your CSS file */
+
+/* Add these styles to your CSS file */
+
+body {
+    font-family: 'DM Sans', sans-serif; /* Apply DM Sans font to the entire document */
+}
+
+/* Additional styling for specific elements */
+h1, h2 {
+    font-weight: 700; /* Use bold font for headings */
+}
+
+input[type="text"],
+select,
+button {
+    font-family: 'DM Sans', sans-serif; /* Apply DM Sans font to form elements */
+    /* Add additional styling for form elements */
+    
+}
+
+#outputContainer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.text-fields-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.input-wrapper {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.input-wrapper label {
+    width: 160px; /* Adjust width as needed */
+    margin-right: 10px;
+    font-weight: bold;
+}
+
+.input-wrapper input {
+    flex: 1;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #f9f9f9;
+    cursor: not-allowed;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #c1d441;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #a6b533;
+}
+

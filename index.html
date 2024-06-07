@@ -3,24 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Policy Maker</title>
+    <title>Aiden BTP Policy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <h1>Aiden Policy Maker</h1>
+        <img src="logo-seo.jpg" alt="Logo" class="logo">
+        <h1>Generate names according to Aiden BTP policy</h1>
+        
+        <!-- Input Form -->
         <form id="inputForm">
             <label for="customerName">Customer Name:</label>
             <input type="text" id="customerName" name="customerName" required>
             
             <label for="directory">Directory:</label>
-            <input type="text" id="directory" name="directory" required>
+            <select id="directory" name="directory" required>
+                <option value="BC">Basis Components (BC)</option>
+                <option value="APPS">Application (APPS)</option>
+                <option value="INT">Integration (INT)</option>
+                <option value="DB">Database (DB)</option>
+            </select>
             
             <label for="environment">Environment:</label>
             <select id="environment" name="environment" required>
-                <option value="PRD">PRD</option>
-                <option value="QAS">QAS</option>
+                <option value="SBX">SBX</option>
                 <option value="DEV">DEV</option>
+                <option value="ACC">ACC</option>
+                <option value="TST">TST</option>
+                <option value="PRD">PRD</option>
             </select>
             
             <label for="project">Project:</label>
@@ -31,28 +44,47 @@
             
             <button type="submit">Generate</button>
         </form>
+        
+        <!-- Output Container -->
         <div id="outputContainer" class="hidden">
             <h2>Generated Text Fields</h2>
-            <div id="textFields">
-                <label for="subaccount">Subaccount:</label>
-                <input type="text" id="subaccount" class="text-field" readonly>
-                <label for="subdomain">Subdomain:</label>
-                <input type="text" id="subdomain" class="text-field" readonly>
-                <label for="cfOrgName">CF Org Name:</label>
-                <input type="text" id="cfOrgName" class="text-field" readonly>
-                <label for="cfSpaceName">CF Space Name:</label>
-                <input type="text" id="cfSpaceName" class="text-field" readonly>
-                <label for="kymaCluster">Kyma Cluster:</label>
-                <input type="text" id="kymaCluster" class="text-field" readonly>
-                <label for="kymaNamespaces">Kyma Namespaces:</label>
-                <input type="text" id="kymaNamespaces" class="text-field" readonly>
-                <label for="cloudConnectorVRT">Cloud Connector VRT:</label>
-                <input type="text" id="cloudConnectorVRT" class="text-field" readonly>
-                <label for="cloudConnectorINT">Cloud Connector INT:</label>
-                <input type="text" id="cloudConnectorINT" class="text-field" readonly>
+            <div id="textFields" class="text-fields-container">
+                <div class="input-wrapper">
+                    <label for="subaccount">Subaccount:</label>
+                    <input type="text" id="subaccount" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="subdomain">Subdomain:</label>
+                    <input type="text" id="subdomain" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="cfOrgName">CF Org Name:</label>
+                    <input type="text" id="cfOrgName" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="cfSpaceName">CF Space Name:</label>
+                    <input type="text" id="cfSpaceName" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="kymaCluster">Kyma Cluster:</label>
+                    <input type="text" id="kymaCluster" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="kymaNamespaces">Kyma Namespaces:</label>
+                    <input type="text" id="kymaNamespaces" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="cloudConnectorVRT">Cloud Connector VRT:</label>
+                    <input type="text" id="cloudConnectorVRT" class="text-field" readonly>
+                </div>
+                <div class="input-wrapper">
+                    <label for="cloudConnectorINT">Cloud Connector INT:</label>
+                    <input type="text" id="cloudConnectorINT" class="text-field" readonly>
+                </div>
             </div>
-            <button id="nextButton">Next</button>
+            <button id="backButton">Back</button>
         </div>
+        
     </div>
     <script src="script.js"></script>
 </body>
