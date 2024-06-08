@@ -1,6 +1,4 @@
-# PolicyMaker
- Aiden Policy Maker
-
+# BTP naming convetion generator
 
 MIT License
 
