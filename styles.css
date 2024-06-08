@@ -123,7 +123,7 @@ button:hover {
     display: block;
     margin: 0 auto 20px; /* Adjust margin as needed */
     border-radius: 50%; /* Makes the image round */
-    max-width: 200px; /* Adjust size as needed */
+    max-width: 125px; /* Adjust size as needed */
 }
 /* Add these styles to your CSS file */
 
