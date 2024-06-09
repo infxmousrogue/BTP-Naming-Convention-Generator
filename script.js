@@ -32,7 +32,7 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
         cfSpaceName: `${project}_Space_${envDetails.nr}`,
         kymaCluster: `${customerName}_${envDetails.nr}_Cluster`,
         kymaNamespaces: `${customerName}_${envDetails.nr}_Namespaces`,
-        cloudConnectorVRT: `s4.ext.${customerDomain}`,
+        cloudConnectorVRT:  `s4-${environment.toLowerCase()}.ext.${customerDomain}`,
         cloudConnectorINT: `s4-${environment.toLowerCase()}.ext.${customerDomain}`
     };
 
