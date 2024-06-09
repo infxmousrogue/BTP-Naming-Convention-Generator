@@ -1,7 +1,7 @@
 /* Update your CSS file with these styles */
 
 body {
-    font-family: 'Arial', sans-serif;
+    font-family: 'DM Sans', sans-serif;
     background-color: #f0f0f0;
     margin: 0;
     padding: 20px;
@@ -18,7 +18,7 @@ body {
 
 h1, h2 {
     text-align: center;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Use a more beautiful font */
+    font-family: 'DM Sans', sans-serif;
 }
 
 form {
@@ -160,7 +160,7 @@ button {
 .input-wrapper {
     display: flex;
     align-items: center;
-    margin-bottom: 15px;
+
 }
 
 .input-wrapper label {
@@ -179,8 +179,6 @@ button {
 }
 
 button {
-    margin-top: 20px;
-    padding: 10px 20px;
     background-color: #c1d441;
     color: white;
     border: none;
@@ -192,3 +190,66 @@ button:hover {
     background-color: #a6b533;
 }
 
+
+.copy-text {
+    position: relative;
+    padding: 10px;
+    background: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    display: flex;
+}
+
+.copy-text input.text {
+    padding: 10px;
+    font-size: 18px;
+    color: #555;
+    border: none;
+    outline: none;
+    background: transparent;
+    width: 250px;
+}
+
+.copy-text button {
+    padding: 10px;
+    background: #a6b533;
+    color: #fff;
+    font-size: 18px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.copy-text button:active {
+    background: #809ce2;
+}
+
+.copy-text button:before {
+    content: "Copied";
+    position: absolute;
+    top: -45px;
+    right: 0px;
+    background: #a6b533;
+    padding: 8px 10px;
+    border-radius: 20px;
+    font-size: 15px;
+    display: none;
+}
+
+.copy-text button:after {
+    content: "";
+    position: absolute;
+    top: -20px;
+    right: 25px;
+    width: 10px;
+    height: 10px;
+    background: #a6b533;
+    transform: rotate(45deg);
+    display: none;
+}
+
+.copy-text.active button:before,
+.copy-text.active button:after {
+    display: block;
+}

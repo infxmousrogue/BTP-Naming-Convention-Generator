@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Aiden BTP Policy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
+
 <body>
     <div class="container">
         <img src="img/logo-seo.jpg" alt="Logo" class="logo">
-        <h2>Generate names according to SAP BTP policy</h2>
+        <h2>Generate names according to SAP BTP policy</h2>
         
         <!-- Input Form -->
         <form id="inputForm">
@@ -47,45 +48,69 @@
         
         <!-- Output Container -->
         <div id="outputContainer" class="hidden">
-            <h2>Click on generated value to copy</h2>
-            <div id="textFields" class="text-fields-container">
-                <div class="input-wrapper">
-                    <label for="subaccount">Subaccount:</label>
-                    <input type="text" id="subaccount" class="text-field" readonly>
+            <h2>Generated Values</h2>
+            <div class="text-fields-container">
+                <div class="copy-container">
+                    <div class="label">Subaccount:</div>
+                    <div class="copy-text">
+                        <input type="text" id="subaccount" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="subdomain">Subdomain:</label>
-                    <input type="text" id="subdomain" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">Subdomain:</div>
+                    <div class="copy-text">
+                        <input type="text" id="subdomain" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="cfOrgName">CF Org Name:</label>
-                    <input type="text" id="cfOrgName" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">CF Org Name:</div>
+                    <div class="copy-text">
+                        <input type="text" id="cfOrgName" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="cfSpaceName">CF Space Name:</label>
-                    <input type="text" id="cfSpaceName" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">CF Space Name:</div>
+                    <div class="copy-text">
+                        <input type="text" id="cfSpaceName" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="kymaCluster">Kyma Cluster:</label>
-                    <input type="text" id="kymaCluster" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">Kyma Cluster:</div>
+                    <div class="copy-text">
+                        <input type="text" id="kymaCluster" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="kymaNamespaces">Kyma Namespaces:</label>
-                    <input type="text" id="kymaNamespaces" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">Kyma Namespaces:</div>
+                    <div class="copy-text">
+                        <input type="text" id="kymaNamespaces" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="cloudConnectorVRT">Cloud Connector VRT:</label>
-                    <input type="text" id="cloudConnectorVRT" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">Cloud Connector VRT:</div>
+                    <div class="copy-text">
+                        <input type="text" id="cloudConnectorVRT" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
-                <div class="input-wrapper">
-                    <label for="cloudConnectorINT">Cloud Connector INT:</label>
-                    <input type="text" id="cloudConnectorINT" class="text-field" readonly>
+                <div class="copy-container">
+                    <div class="label">Cloud Connector INT:</div>
+                    <div class="copy-text">
+                        <input type="text" id="cloudConnectorINT" class="text" readonly>
+                        <button><i class="fa fa-clone"></i></button>
+                    </div>
                 </div>
             </div>
             <button id="backButton">Back</button>
         </div>
-        
     </div>
     <script src="script.js"></script>
 </body>
+
 </html>
