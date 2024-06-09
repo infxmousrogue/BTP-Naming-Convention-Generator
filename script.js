@@ -43,6 +43,7 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
 
     document.getElementById('inputForm').classList.add('hidden');
     document.getElementById('outputContainer').classList.remove('hidden');
+    drawer.classList.add('is-open');
 });
 
 document.getElementById('backButton').addEventListener('click', function() {

@@ -14,6 +14,7 @@ body {
     max-width: 500px;
     margin: auto;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s, opacity 0.5s;
 }
 
 h1, h2 {
@@ -25,6 +26,7 @@ form {
     display: flex;
     flex-direction: column;
     gap: 15px;
+    transition: transform 0.5s, opacity 0.5s;
 }
 
 input[type="text"],
@@ -50,6 +52,8 @@ button:hover {
 #outputContainer {
     margin-top: 20px;
     text-align: center;
+
+
 }
 
 .text-field {
@@ -64,8 +68,17 @@ button:hover {
 }
 
 .hidden {
-    display: none;
+
+    opacity: 0;
+    scale: 0;
+    width: 0;
+    height: 0;
+    pointer-events: none; /* Prevent interaction while hidden */
+  
 }
+
+
+
 
 .copy-container img.copy-btn {
     width: 20px;
@@ -99,6 +112,13 @@ button:hover {
     width: 200px;
 }
 
+.inputForm{
+    transition: display 0s, opacity 0.5s linear;
+    transition-behavior: allow-discrete;
+    opacity: 1;
+    scale: 1;
+}
+
 .logo {
     display: block;
     margin: 0 auto 20px; /* Adjust margin as needed */
@@ -129,8 +149,11 @@ button {
 #outputContainer {
     margin-top: 20px;
     text-align: center;
-
+    transition-property: width;
+    transition-duration: 2s;
+    transition-timing-function:linear;
 }
+
 
 
 .text-fields-container {
@@ -145,6 +168,8 @@ button {
 }
 
 button {
+    font-size: medium;
+    font-weight:600;
     background-color: #c1d441;
     color: white;
     border: none;
