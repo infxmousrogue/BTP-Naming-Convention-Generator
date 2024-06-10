@@ -20,8 +20,8 @@
         
         <!-- Input Form -->
         <form id="inputForm">
-            <label for="customerName">Customer Name:</label>
-            <input type="text" id="customerName" name="customerName" required>
+            <label for="customerName">Customer Name Acronym (max 3 characters):</label>
+            <input type="text" max-length="3" placeholder="ACR" id="customerName" name="customerName" required>
             
             <label for="directory">Type:</label>
             <select id="directory" name="directory" required>
@@ -44,7 +44,8 @@
             <input type="text" id="project" name="project" required>
             
             <label for="customerDomain">Customer Domain:</label>
-            <input type="text" id="customerDomain" name="customerDomain" required>
+            <input type="text" placeholder="aiden.eu" id="customerDomain" name="customerDomain" required>
+            <span id="errorMessage" style="color: red; display: none;">Invalid domain name</span>
             
             <button type="submit">Generate</button>
         </form>
@@ -102,10 +103,10 @@
                         <button><i class="fa fa-clone"></i></button>
                     </div>
                 </div>
-                <div class="copy-container">
+                <div class="copy-container" hidden>
                     <div class="label">Cloud Connector INT:</div>
                     <div class="copy-text">
-                        <input type="text" id="cloudConnectorINT" class="text" readonly>
+                        <input type="text" id="cloudConnectorINT" class="text">
                         <button><i class="fa fa-clone"></i></button>
                     </div>
                 </div>
