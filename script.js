@@ -28,7 +28,7 @@ document.getElementById('inputForm').addEventListener('submit', function(event) 
     const textFields = {
         subaccount: `${envDetails.nr}${dirDetails.nr}-${dirDetails.prefix}-${environment}`,
         subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
-        cfOrgName: `${project}_Org_${envDetails.nr}`,
+        cfOrgName: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
         cfSpaceName: `${project}_Space_${envDetails.nr}`,
         kymaCluster: `${customerName}_${envDetails.nr}_Cluster`,
         kymaNamespaces: `${customerName}_${envDetails.nr}_Namespaces`,
