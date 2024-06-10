@@ -1,4 +1,4 @@
-# BTP naming convetion generator
+# BTP Naming Convention Generator
 
 MIT License
 
