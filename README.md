@@ -18,7 +18,6 @@ Component Type: Select from Basis Components (BC), Application (APPS), Integrati
 Environment: Choose the environment such as Sandbox (SBX), Development (DEV), Acceptance (ACC), Test (TST), or Production (PRD).
 Project Name: The project identifier used in organizational and space names.
 Customer Domain: The domain name used in endpoint URLs.
-Responsive Interface:
 
 Form Submission: Simple form to input necessary details and generate names.
 Copy to Clipboard: Each generated name can be copied with a single click, enhancing usability and efficiency.
@@ -35,11 +34,9 @@ Developers can use the generated names in their configurations and deployment sc
 Administrators can ensure that all BTP resources follow the standardized naming convention, making management and auditing simpler.
 Overall, the SAP BTP Naming Generator is an essential tool for anyone involved in configuring or managing SAP BTP resources, streamlining the naming process and ensuring compliance with SAP standards.
 
+# MIT License
 
-
-MIT License
-
-Copyright (c) [2024] [infxmousrogue]
+## Copyright (c) [2024] [infxmousrogue]
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
