@@ -36,7 +36,7 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
     const dirDetails = directoryMap[directory];
 
     const textFields = {
-        subaccount: `${envDetails.nr}${dirDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
+        subaccount: `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
         subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
         cfOrgName: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
         cfSpaceName: `${project}_Space_${envDetails.nr}`,
