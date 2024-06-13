@@ -46,6 +46,58 @@
             <label for="customerDomain">Customer Domain:</label>
             <input type="text" placeholder="aiden.eu" id="customerDomain" name="customerDomain" required>
             <span id="errorMessage" style="color: red; display: none;">Invalid domain name</span>
+
+            <div class="dropdown-container">
+                <h3>SAP BTP Services which will be deployed</h3>
+                <div class="dropdown">
+                    <button onclick="toggleDropdown()">Select Services</button>
+                    <div class="dropdown-content" id="dropdown-content">
+                        <label><input type="checkbox" value="SAP Build Work Zone">SAP Build Work Zone</label>
+                        <label><input type="checkbox" value="SAP Build Work Zone standard edition">SAP Build Work Zone standard edition</label>
+                        <label><input type="checkbox" value="SAP Build Work Zone advanced edition">SAP Build Work Zone advanced edition</label>
+                        <label><input type="checkbox" value="SAP Build Apps">SAP Build Apps</label>
+                        <label><input type="checkbox" value="SAP Build Process Automation">SAP Build Process Automation</label>
+                        <label><input type="checkbox" value="SAP Business Application Studio">SAP Business Application Studio</label>
+                        <label><input type="checkbox" value="SAP Build Code">SAP Build Code</label>
+                        <label><input type="checkbox" value="SAP Mobile Services">SAP Mobile Services</label>
+                        <label><input type="checkbox" value="Document Management Service">Document Management Service</label>
+                        <label><input type="checkbox" value="Application Option">Application Option</label>
+                        <label><input type="checkbox" value="Integration Option">Integration Option</label>
+                        <label><input type="checkbox" value="Document Information Extraction">Document Information Extraction</label>
+                        <label><input type="checkbox" value="Forms Service by Adobe">Forms Service by Adobe</label>
+                        <label><input type="checkbox" value="SAP Print service">SAP Print service</label>
+                        <label><input type="checkbox" value="SAP Integration Suite">SAP Integration Suite</label>
+                        <label><input type="checkbox" value="SAP HANA Cloud">SAP HANA Cloud</label>
+                        <label><input type="checkbox" value="SAP Datasphere">SAP Datasphere</label>
+                        <label><input type="checkbox" value="SAP Analytics Cloud">SAP Analytics Cloud</label>
+                        <label><input type="checkbox" value="SAP Cloud Identity Services">SAP Cloud Identity Services</label>
+                        <label><input type="checkbox" value="SAP Identity Authentication Services">SAP Identity Authentication Services</label>
+                        <label><input type="checkbox" value="SAP Identity Provisioning Services">SAP Identity Provisioning Services</label>
+                        <label><input type="checkbox" value="SAP BTP ABAP Cloud">SAP BTP ABAP Cloud</label>
+                        <label><input type="checkbox" value="SAP Web IDE Full-Stack">SAP Web IDE Full-Stack</label>
+                        <label><input type="checkbox" value="SAP Task Center">SAP Task Center</label>
+                        <label><input type="checkbox" value="SAP Audit Log Service">SAP Audit Log Service</label>
+                        <label><input type="checkbox" value="SAP Application Logging Service for SAP BTP">SAP Application Logging Service for SAP BTP</label>
+                        <label><input type="checkbox" value="SAP Custom Domain Service">SAP Custom Domain Service</label>
+                        <label><input type="checkbox" value="SAP Continuous Integration and Delivery">SAP Continuous Integration and Delivery</label>
+                        <label><input type="checkbox" value="Application Autoscaler">Application Autoscaler</label>
+                        <label><input type="checkbox" value="Business Entity Recognition">Business Entity Recognition</label>
+                        <label><input type="checkbox" value="Job Scheduling Service">Job Scheduling Service</label>
+                        <label><input type="checkbox" value="Alert Notification">Alert Notification</label>
+                        <label><input type="checkbox" value="Cloud Integration Automation">Cloud Integration Automation</label>
+                        <label><input type="checkbox" value="SAP Event Mesh">SAP Event Mesh</label>
+                        <label><input type="checkbox" value="Content Agent">Content Agent</label>
+                        <label><input type="checkbox" value="SAP Cloud ALM">SAP Cloud ALM</label>
+                        <label><input type="checkbox" value="SAP Cloud Transport Management">SAP Cloud Transport Management</label>
+                        <label><input type="checkbox" value="SAP BTP AI">SAP BTP AI</label>
+                        <label><input type="checkbox" value="SAP AI Core">SAP AI Core</label>
+                        <label><input type="checkbox" value="SAP AI Launchpad">SAP AI Launchpad</label>
+                        <label><input type="checkbox" value="SAP AI Services">SAP AI Services</label>
+                    </div>
+                </div>
+                <ul id="selectedServices"></ul>
+            </div>
+        
             
             <button type="submit">Generate</button>
         </form>
@@ -109,8 +161,9 @@
                         <input type="text" id="cloudConnectorINT" class="text">
                         <button><i class="fa fa-clone"></i></button>
                     </div>
-                </div>
-            </div>
+                </div>     
+  
+        </div>
             <button id="backButton">Back</button>
         </div>
     </div>

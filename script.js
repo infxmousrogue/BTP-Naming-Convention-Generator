@@ -13,6 +13,22 @@ const directoryMap = {
     "DB": { nr: 4, prefix: "DB" }
 };
 
+function toggleDropdown() {
+    document.getElementById("dropdown-content").classList.toggle("show");
+}
+
+document.querySelectorAll('.dropdown-content input[type="checkbox"]').forEach(function(checkbox) {
+    checkbox.addEventListener('change', function() {
+        const selectedServices = document.getElementById('selectedServices');
+        selectedServices.innerHTML = '';
+        document.querySelectorAll('.dropdown-content input[type="checkbox"]:checked').forEach(function(checkedBox) {
+            const li = document.createElement('li');
+            li.textContent = checkedBox.value;
+            selectedServices.appendChild(li);
+        });
+    });
+});
+
 document.getElementById('customerDomain').addEventListener('input', function () {
     const domainPattern = /^(?!:\/\/)([a-zA-Z0-9-]+\.)+[a-zA-Z]{2,}$/;
     const isValid = domainPattern.test(this.value);

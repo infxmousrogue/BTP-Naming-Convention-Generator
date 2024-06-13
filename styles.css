@@ -251,3 +251,41 @@ button:hover {
     margin: 10px;
     width: 120px;
 }
+.dropdown-container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    font-family: Arial, sans-serif;
+}
+.dropdown-container h1 {
+    text-align: center;
+}
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+}
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+.dropdown-content label {
+    display: block;
+    padding: 8px 16px;
+}
+.dropdown-content label:hover {
+    background-color: #f1f1f1;
+}
+.dropdown-content input[type="checkbox"] {
+    margin-right: 10px;
+}
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+#selectedServices {
+    margin-top: 20px;
+}
