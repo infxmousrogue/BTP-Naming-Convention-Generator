@@ -26,6 +26,17 @@ document.getElementById('customerName').addEventListener('input', function () {
 document.getElementById('inputForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
+    function generateRandomString(length) {
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+
+    const randomString = generateRandomString(4);
+
     const customerName = document.getElementById('customerName').value.toLowerCase();
     const directory = document.getElementById('directory').value;
     const environment = document.getElementById('environment').value.toUpperCase();
@@ -37,7 +48,7 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
 
     const textFields = {
         subaccount: `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
-        subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
+        subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${randomString}`,
         cfOrgName: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
         cfSpaceName: `${project}_Space_${envDetails.nr}`,
         kymaCluster: `${customerName}_${envDetails.nr}_Cluster`,
