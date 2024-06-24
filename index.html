@@ -60,6 +60,12 @@
             <input type="text" placeholder="aiden.eu" id="customerDomain" name="customerDomain" required>
             <span id="errorMessage" style="color: red; display: none;">Invalid domain name</span>
 
+            <label for="target">Target:</label>
+            <input type="text" placeholder="xxxxx" id="target" name="target" required>
+
+            <label for="type">Type:</label>
+            <input type="text" placeholder="xxxxx" id="type" name="type" required>
+
             <div class="dropdown-container">
                 <h3>SAP BTP Services which will be deployed</h3>
                 <div class="dropdown">
@@ -118,7 +124,9 @@
         <!-- Output Container -->
         <div id="outputContainer" class="hidden">
             <!-- <h2>Generated Values</h2> -->
+           
             <div class="text-fields-container">
+             
                 <div class="copy-container">
                     <div class="label">Subaccount:</div>
                     <div class="copy-text">
@@ -149,7 +157,8 @@
                         <button class="copy-button"><i class="fa fa-clone"></i></button>
                     </div>
                 </div>
-                <div id="instanceContainer"></div>
+    
+          
                 <div class="copy-container">
                     <div class="label">Kyma Cluster:</div>
                     <div class="copy-text">
@@ -185,16 +194,7 @@
                         <button class="copy-button"><i class="fa fa-clone"></i></button>
                     </div>
                 </div>    
-                <div class="checkbox-wrapper-44">
-                    <label class="toggleButton">
-                      <input type="checkbox">
-                      <div>
-                        <svg viewBox="0 0 44 44">
-                          <path d="M14,24 L21,31 L39.7428882,11.5937758 C35.2809627,6.53125861 30.0333333,4 24,4 C12.95,4 4,12.95 4,24 C4,35.05 12.95,44 24,44 C35.05,44 44,35.05 44,24 C44,19.3 42.5809627,15.1645919 39.7428882,11.5937758" transform="translate(-2.000000, -2.000000)"></path>
-                        </svg>
-                      </div>
-                    </label>
-                  </div>
+           
                   
                                    
                 <div class="copy-container" hidden>
@@ -207,8 +207,17 @@
   
         </div>
             <button id="backButton">Back</button>
+            <button id="showPopupButton">Show Instance Details</button>
         </div>
     </div>
+
+    <!-- Popup Container (hidden by default) -->
+<div id="popupContainer" class="popup-container ">
+    <div id="instanceContainer"></div>
+    <button id="closePopupButton">Close</button>
+</div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
