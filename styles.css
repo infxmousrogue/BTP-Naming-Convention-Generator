@@ -252,10 +252,7 @@ button:hover {
     width: 120px;
 }
 .dropdown-container {
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
-    font-family: Arial, sans-serif;
+    
 }
 .dropdown-container h1 {
     text-align: center;
@@ -623,3 +620,55 @@ button:hover {
     visibility: hidden;
     animation-name: fadeOut;
 }
+
+/* styles.css or in your <style> tag */
+.popover {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 20px; /* Adjust spacing as needed */
+}
+
+.popover button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+}
+
+.popover .popover-content {
+    display: none;
+    position: absolute;
+    z-index: 1;
+    background-color: white;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 10px;
+    border-radius: 5px;
+    width: 200px; /* Adjust width as needed */
+}
+
+.popover .popover-content.show {
+    display: block;
+}
+
+.popover .popover-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.popover .popover-content li {
+    padding: 5px 0;
+}
+
+/* Positioning the popover relative to the button */
+.popover .popover-content::before {
+    content: "";
+    position: absolute;
+    top: -5px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent white transparent;
+}
+
