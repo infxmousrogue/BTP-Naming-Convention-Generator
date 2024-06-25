@@ -83,6 +83,109 @@ document.getElementById('customerName').addEventListener('input', function () {
     this.value = this.value.replace(/[^a-zA-Z0-9]/g, '').slice(0, 3);
 });
 
+
+
+//BACK BUTTON
+document.getElementById('backButton').addEventListener('click', function () {
+    document.getElementById('outputContainer').classList.add('hidden');
+    document.getElementById('inputForm').classList.remove('hidden');
+    this.classList.add('hidden');
+});
+
+
+//COPY TEXT FUNCTIONALITY
+document.querySelectorAll(".copy-button").forEach(button => {
+    button.addEventListener("click", function () {
+        const input = this.parentElement.querySelector("input.text");
+        input.select();
+        document.execCommand("copy");
+        this.parentElement.classList.add("active");
+        window.getSelection().removeAllRanges();
+        
+        setTimeout(() => this.parentElement.classList.remove("active"), 2500);
+    });
+});
+
+// COPY FOR THE GENERATED OBJECTS -- MUST HAVE AS THESE HAVE DIFFERENT BEHAVIOUR
+document.addEventListener("click", function (event) {
+    if (event.target && event.target.classList.contains("copy-button")) {
+        const input = event.target.parentElement.querySelector("input.text");
+        if (input) {
+            input.select();
+            document.execCommand("copy");
+            event.target.parentElement.classList.add("active");
+            window.getSelection().removeAllRanges();
+            
+       
+
+            // Remove the 'active' class after 2.5 seconds
+            setTimeout(() => {
+                event.target.parentElement.classList.remove("active");
+            }, 2500);
+        }
+    }
+});
+
+
+
+//CALL FUNCTION FOR REGENERATION OF RANDOMIZER SUBDOMAIN
+document.getElementById('regenerateButton').addEventListener('click', function () {
+    updateGeneratedValues();
+});
+
+// REGENERATE RANDOM VALUES FOR SUBDOMAIN
+function updateGeneratedValues() {
+    function generateRandomString(length) {
+        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
+        let result = '';
+        for (let i = 0; i < length; i++) {
+            result += chars.charAt(Math.floor(Math.random() * chars.length));
+        }
+        return result;
+    }
+
+    const randomString = generateRandomString(4);
+
+    const customerName = document.getElementById('customerName').value.toLowerCase();
+    const directory = document.getElementById('directory').value;
+    const environment = document.getElementById('environment').value.toUpperCase();
+    const dirDetails = directoryMap[directory];
+
+    const textFields = {
+     
+        subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${randomString}`
+        
+    };
+
+    Object.keys(textFields).forEach(fieldId => {
+        document.getElementById(fieldId).value = textFields[fieldId];
+    });
+}
+
+//SHOW AND CLOSE POPUP FOR BTP SELECTED SERVICES
+document.addEventListener('DOMContentLoaded', function () {
+    const showPopupButton = document.getElementById('showPopupButton');
+    const popupContainer = document.getElementById('popupContainer');  
+    const closePopupButton = document.getElementById('closePopupButton');
+
+    // Click event listener for showPopupButton
+    showPopupButton.addEventListener('click', function () {
+        // Generate or fetch content for the popup (example content)
+
+
+        // Show the popup
+        popupContainer.classList.add('visible');
+    });
+
+    // Close popup button event listener
+    closePopupButton.addEventListener('click', function () {
+        // Hide the popup
+        popupContainer.classList.remove('visible');
+    });
+});
+
+
+//GENERATION LOGIC
 document.getElementById('inputForm').addEventListener('submit', function (event) {
     event.preventDefault();
 
@@ -123,98 +226,14 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
             // Destination calculation
             const destination = `${selectedPrefix}-${target}-${project}-${type}`;
 
-            // Create instance container elements
-            const copyContainer = document.createElement('div');
-            copyContainer.classList.add('copy-container');
+            // Create and append separate copy containers for instance, destination, and service key
+            const instanceCopyContainer = createCopyContainer(selectedService, instanceValue, 'Instance');
+            const destinationCopyContainer = createCopyContainer(`${selectedService} Destination`, destination, 'Destination');
+            const serviceKeyCopyContainer = createCopyContainer(`${selectedService} Service Key`, serviceKey, 'Service Key');
 
-            const instanceLabel = document.createElement('div');
-            instanceLabel.classList.add('label');
-            instanceLabel.textContent = selectedService;
-
-            // Create instance container elements
-            const copytext = document.createElement('div');
-            copytext.classList.add('copy-text');
-
-
-            const instanceText = document.createElement('input');
-            instanceText.setAttribute('type', 'text');
-            instanceText.setAttribute('class', 'text');
-            instanceText.setAttribute('readonly', true);
-            instanceText.value = instanceValue;
-
-            const instanceCopyButton = document.createElement('button');
-            instanceCopyButton.classList.add('copy-button');
-            instanceCopyButton.innerHTML = '<i class="fa fa-clone"></i>';
-            instanceCopyButton.addEventListener('click', function () {
-                instanceText.select();
-                document.execCommand('copy');
-                instanceCopyButton.classList.add('active');
-                setTimeout(() => instanceCopyButton.classList.remove('active'), 2500);
-            });
-
-            const destinationLabel = document.createElement('div');
-            destinationLabel.classList.add('label');
-            destinationLabel.textContent = `${selectedService} Destination:`;
-
-            const destinationText = document.createElement('input');
-            destinationText.setAttribute('type', 'text');
-            destinationText.setAttribute('class', 'text');
-            destinationText.setAttribute('readonly', true);
-            destinationText.value = destination;
-
-            const destinationCopyButton = document.createElement('button');
-            destinationCopyButton.classList.add('copy-button');
-            destinationCopyButton.innerHTML = '<i class="fa fa-clone"></i>';
-            destinationCopyButton.addEventListener('click', function () {
-                destinationText.select();
-                document.execCommand('copy');
-                destinationCopyButton.classList.add('active');
-                setTimeout(() => destinationCopyButton.classList.remove('active'), 2500);
-            });
-
-            const serviceKeyLabel = document.createElement('div');
-            serviceKeyLabel.classList.add('label');
-            serviceKeyLabel.textContent = `${selectedService} Service Key:`;
-
-            const serviceKeyText = document.createElement('input');
-            serviceKeyText.setAttribute('type', 'text');
-            serviceKeyText.setAttribute('class', 'text');
-            serviceKeyText.setAttribute('readonly', true);
-            serviceKeyText.value = serviceKey;
-
-            const serviceKeyCopyButton = document.createElement('button');
-            serviceKeyCopyButton.classList.add('copy-button');
-            serviceKeyCopyButton.innerHTML = '<i class="fa fa-clone"></i>';
-            serviceKeyCopyButton.addEventListener('click', function () {
-                serviceKeyText.select();
-                document.execCommand('copy');
-                serviceKeyCopyButton.classList.add('active');
-                setTimeout(() => serviceKeyCopyButton.classList.remove('active'), 2500);
-            });
-
-            const instanceDiv = document.createElement('div');
-            instanceDiv.classList.add('copy-text');
-            instanceDiv.appendChild(instanceText);
-            instanceDiv.appendChild(instanceCopyButton);
-
-            const destinationDiv = document.createElement('div');
-            destinationDiv.classList.add('copy-text');
-            destinationDiv.appendChild(destinationText);
-            destinationDiv.appendChild(destinationCopyButton);
-
-            const serviceKeyDiv = document.createElement('div');
-            serviceKeyDiv.classList.add('copy-text');
-            serviceKeyDiv.appendChild(serviceKeyText);
-            serviceKeyDiv.appendChild(serviceKeyCopyButton);
-
-            copyContainer.appendChild(instanceLabel);
-            copyContainer.appendChild(instanceDiv);
-            copyContainer.appendChild(destinationLabel);
-            copyContainer.appendChild(destinationDiv);
-            copyContainer.appendChild(serviceKeyLabel);
-            copyContainer.appendChild(serviceKeyDiv);
-
-            instanceContainer.appendChild(copyContainer);
+            instanceContainer.appendChild(instanceCopyContainer);
+            instanceContainer.appendChild(destinationCopyContainer);
+            instanceContainer.appendChild(serviceKeyCopyContainer);
         }
     });
 
@@ -225,7 +244,8 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
         cfSpaceName: `${project}_Space_${envDetails.nr}`,
         kymaCluster: `${customerName}_${envDetails.nr}_Cluster`,
         kymaNamespaces: `${customerName}_${envDetails.nr}_Namespaces`,
-        cloudConnectorVRT: `s4-${environment.toLowerCase()}.ext.${customerDomain}`
+        cloudConnectorVRT: `s4.ext.${customerDomain}`,
+        cloudConnectorINT: `s4-${environment.toLowerCase()}.ext.${customerDomain}`
     };
 
     // Set other field values (if needed)
@@ -236,82 +256,65 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
     document.getElementById('inputForm').classList.add('hidden');
     document.getElementById('outputContainer').classList.remove('hidden');
     document.getElementById('backButton').classList.remove('hidden');
-});
 
+    // Get the checkbox element
+    const checkbox = document.querySelector('.checkbox-wrapper-44 input[type="checkbox"]');
 
+    // Get the checked value
+    const isChecked = checkbox.checked;
 
+    const vrtField = document.getElementById('vrtContainer');
+    const intField = document.getElementById('intContainer');
 
-
-
-
-
-document.getElementById('backButton').addEventListener('click', function () {
-    document.getElementById('outputContainer').classList.add('hidden');
-    document.getElementById('inputForm').classList.remove('hidden');
-    this.classList.add('hidden');
-});
-
-document.querySelectorAll(".copy-text button").forEach(button => {
-    button.addEventListener("click", function () {
-        const input = this.parentElement.querySelector("input.text");
-        input.select();
-        document.execCommand("copy");
-        this.parentElement.classList.add("active");
-        window.getSelection().removeAllRanges();
-        setTimeout(() => this.parentElement.classList.remove("active"), 2500);
-    });
-});
-
-document.getElementById('regenerateButton').addEventListener('click', function () {
-    updateGeneratedValues();
-});
-
-function updateGeneratedValues() {
-    function generateRandomString(length) {
-        const chars = 'abcdefghijklmnopqrstuvwxyz0123456789';
-        let result = '';
-        for (let i = 0; i < length; i++) {
-            result += chars.charAt(Math.floor(Math.random() * chars.length));
-        }
-        return result;
+    if (isChecked) {
+        vrtField.style.display = 'block';
+        intField.style.display = 'none';
+    } else {
+        vrtField.style.display = 'none';
+        intField.style.display = 'block';
     }
+});
 
-    const randomString = generateRandomString(4);
+/**
+ * Create a copy container element
+ * @param {string} label - The label text
+ * @param {string} value - The input value
+ * @param {string} type - The type for ID and class naming
+ */
+function createCopyContainer(label, value, type) {
+    const copyContainer = document.createElement('div');
+    copyContainer.classList.add('copy-container');
 
-    const customerName = document.getElementById('customerName').value.toLowerCase();
-    const directory = document.getElementById('directory').value;
-    const environment = document.getElementById('environment').value.toUpperCase();
-    const dirDetails = directoryMap[directory];
+    const labelDiv = document.createElement('div');
+    labelDiv.classList.add('label');
+    labelDiv.textContent = label;
 
-    const textFields = {
-     
-        subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${randomString}`
-        
-    };
+    const copyTextDiv = document.createElement('div');
+    copyTextDiv.classList.add('copy-text');
 
-    Object.keys(textFields).forEach(fieldId => {
-        document.getElementById(fieldId).value = textFields[fieldId];
+    const inputText = document.createElement('input');
+    inputText.setAttribute('type', 'text');
+    inputText.setAttribute('class', 'text');
+    inputText.setAttribute('readonly', true);
+    inputText.value = value;
+
+    const copyButton = document.createElement('button');
+    copyButton.classList.add('copy-button');
+    copyButton.innerHTML = '<i class="fa fa-clone"></i>';
+    copyButton.addEventListener('click', function () {
+        inputText.select();
+        document.execCommand('copy');
+        copyButton.classList.add('active');
+        setTimeout(() => copyButton.classList.remove('active'), 2500);
     });
+
+    copyTextDiv.appendChild(inputText);
+    copyTextDiv.appendChild(copyButton);
+
+    copyContainer.appendChild(labelDiv);
+    copyContainer.appendChild(copyTextDiv);
+
+    return copyContainer;
 }
 
-document.addEventListener('DOMContentLoaded', function () {
-    const showPopupButton = document.getElementById('showPopupButton');
-    const popupContainer = document.getElementById('popupContainer');  
-    const closePopupButton = document.getElementById('closePopupButton');
-
-    // Click event listener for showPopupButton
-    showPopupButton.addEventListener('click', function () {
-        // Generate or fetch content for the popup (example content)
-
-
-        // Show the popup
-        popupContainer.classList.add('visible');
-    });
-
-    // Close popup button event listener
-    closePopupButton.addEventListener('click', function () {
-        // Hide the popup
-        popupContainer.classList.remove('visible');
-    });
-});
 
