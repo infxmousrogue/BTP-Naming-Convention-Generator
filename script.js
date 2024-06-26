@@ -218,13 +218,13 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
         if (checkboxToPrefixMap.hasOwnProperty(checkbox.value)) {
             const selectedService = checkbox.value;
             const selectedPrefix = checkboxToPrefixMap[selectedService];
-            const instanceValue = `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${selectedPrefix}`;
+            const instanceValue = `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${selectedPrefix}`.toLowerCase();
             
             // Service Key calculation
-            const serviceKey = `${instanceValue}-${target}-key`;
+            const serviceKey = `${instanceValue.toLowerCase()}-${target}-key`.toLowerCase();
 
             // Destination calculation
-            const destination = `${selectedPrefix}-${target}-${project}-${type}`;
+            const destination = `${selectedPrefix}-${target}-${project}-${type}`.toLowerCase();
 
             // Create and append separate copy containers for instance, destination, and service key
             const instanceCopyContainer = createCopyContainer(selectedService, instanceValue, 'Instance');
