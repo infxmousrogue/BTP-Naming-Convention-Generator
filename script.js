@@ -241,8 +241,8 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
         subaccount: `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`.toLowerCase(),
         subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${randomString}`.toLowerCase(),
         cfOrgName: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`.toLowerCase(),
-        cfSpaceName: `${project}_Space_${envDetails.nr}`.toLowerCase(),
-        kymaCluster: `${customerName}_${envDetails.nr}_Cluster`.toLowerCase(),
+        cfSpaceName: `${project.toLowerCase()}-Space_${envDetails.nr}`,
+        kymaCluster: `${customerName.toLowerCase()}_${envDetails.nr}_Cluster`,
         kymaNamespaces: `${customerName}_${envDetails.nr}_Namespaces`.toLowerCase(),
         cloudConnectorVRT: `s4.ext.${customerDomain}`,
         cloudConnectorINT: `s4-${environment.toLowerCase()}.ext.${customerDomain}`.toLowerCase()
