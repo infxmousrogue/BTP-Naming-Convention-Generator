@@ -238,14 +238,14 @@ document.getElementById('inputForm').addEventListener('submit', function (event)
     });
 
     const textFields = {
-        subaccount: `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
-        subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${randomString}`,
-        cfOrgName: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`,
-        cfSpaceName: `${project}_Space_${envDetails.nr}`,
-        kymaCluster: `${customerName}_${envDetails.nr}_Cluster`,
-        kymaNamespaces: `${customerName}_${envDetails.nr}_Namespaces`,
+        subaccount: `${dirDetails.nr}${envDetails.nr}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`.toLowerCase(),
+        subdomain: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}-${randomString}`.toLowerCase(),
+        cfOrgName: `${customerName}-${dirDetails.prefix.toLowerCase()}-${environment.toLowerCase()}`.toLowerCase(),
+        cfSpaceName: `${project}_Space_${envDetails.nr}`.toLowerCase(),
+        kymaCluster: `${customerName}_${envDetails.nr}_Cluster`.toLowerCase(),
+        kymaNamespaces: `${customerName}_${envDetails.nr}_Namespaces`.toLowerCase(),
         cloudConnectorVRT: `s4.ext.${customerDomain}`,
-        cloudConnectorINT: `s4-${environment.toLowerCase()}.ext.${customerDomain}`
+        cloudConnectorINT: `s4-${environment.toLowerCase()}.ext.${customerDomain}`.toLowerCase()
     };
 
     // Set other field values (if needed)
